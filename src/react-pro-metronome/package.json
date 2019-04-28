@@ -1,0 +1,110 @@
+{
+  "_args": [
+    [
+      "react-pro-metronome@1.1.0",
+      "/Users/lucasmazzutti/Documents/ReactCourse/testReactApp/mutoki"
+    ]
+  ],
+  "_from": "react-pro-metronome@1.1.0",
+  "_id": "react-pro-metronome@1.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-oSiMn7tfvy8X7WAjrqHryhshVh/D0K1XKKQxMcMNTSrRnq8YVkP2g9I2o8EfjjmYMiAQ+hdqnRD38jCXOkltoA==",
+  "_location": "/react-pro-metronome",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "react-pro-metronome@1.1.0",
+    "name": "react-pro-metronome",
+    "escapedName": "react-pro-metronome",
+    "rawSpec": "1.1.0",
+    "saveSpec": null,
+    "fetchSpec": "1.1.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-pro-metronome/-/react-pro-metronome-1.1.0.tgz",
+  "_spec": "1.1.0",
+  "_where": "/Users/lucasmazzutti/Documents/ReactCourse/testReactApp/mutoki",
+  "author": {
+    "name": "A. Iglesias"
+  },
+  "bugs": {
+    "url": "https://github.com/rigobauer/react-pro-metronome/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "codecov.io": "^0.1.6",
+    "coveralls": "^3.0.0",
+    "howler": "^2.0.8",
+    "prop-types": "^15.6.0"
+  },
+  "description": "react-pro-metronome React component",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^0.15.0-rc.6",
+    "lint-staged": "^6.1.0",
+    "nwb": "0.21.x",
+    "prettier": "^1.10.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "semantic-release": "^12.4.1",
+    "sinon": "^4.2.2",
+    "travis-deploy-once": "^4.3.4"
+  },
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "homepage": "https://github.com/rigobauer/react-pro-metronome#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "keywords": [
+    "react-component",
+    "metronome",
+    "react-metronome"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --single-quote --no-semi --write",
+      "git add"
+    ]
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "name": "react-pro-metronome",
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rigobauer/react-pro-metronome.git"
+  },
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "cm": "git-cz",
+    "semantic-release": "semantic-release",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "version": "1.1.0"
+}
