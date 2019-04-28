@@ -1,5 +1,5 @@
-import React from 'react';
 import RPMetronome from 'react-pro-metronome';
+import React from 'react';
 import Slider from './Slider';
 
 class Metronome extends React.Component {
