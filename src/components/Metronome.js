@@ -1,4 +1,4 @@
-import RPMetronome from 'react-pro-metronome';
+import RPMetronome from '../react-pro-metronome';
 import React from 'react';
 import Slider from './Slider';
 
