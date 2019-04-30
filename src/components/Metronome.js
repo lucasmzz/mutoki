@@ -1,11 +1,12 @@
-import RPMetronome from '../react-pro-metronome/es/index';
+import RPMetronome from 'react-pro-metronome';
 import React from 'react';
 import Slider from './Slider';
 
 class Metronome extends React.Component {
 	state = {
 		soundEnabled: false,
-		tempo: 85
+		tempo: 85,
+		signature: '3111'
 	};
 	onPlay = () => {
 		this.setState({soundEnabled: true});
@@ -16,8 +17,23 @@ class Metronome extends React.Component {
 
 	onSliderChange = (value) => {
 		this.setState({ tempo: value });
+	};
+	
+	onSignatureChange = (event) => {
+		switch (event.target.value) {
+			case "44":
+				this.setState({ signature: '3111' });
+				break;
+			case "34":
+				this.setState({ signature: '311' });
+				break;
+			case "54":
+				this.setState({ signature: '31111' });
+				break;
+			default:
+				this.setState({ signature: '3111' });
+		}
 	}
-
 	buttonStyle = {
 		width: '100%',
 		fontSize: '2vw',
@@ -33,10 +49,10 @@ class Metronome extends React.Component {
 					bpm={this.state.tempo}
 					subdivision={1}
 					soundEnabled={this.state.soundEnabled}
-					soundPattern="3111"
+					soundPattern={this.state.signature}
 					render={(props, state) => (
 				    	<div className="ui grid">
-					    	<div className="row">
+					    	<div className="two column row">
 					    		<div className="eight wide column">
 						    		<div className="ui placeholder segment" style={{backgroundColor: 'rgba(0,0,0,0.03)'}}>
 									  <div className="ui two column centered grid">

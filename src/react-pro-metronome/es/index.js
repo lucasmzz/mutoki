@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { React, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Howl } from 'howler';
 
@@ -90,13 +90,13 @@ var ProMetronome = function (_PureComponent) {
   };
 
   ProMetronome.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-    if (nextProps.isPlaying !== this.props.isPlaying) {
+    if (nextProps.isPlaying != this.props.isPlaying) {
       if (nextProps.isPlaying) {
         this.timerID = setInterval(this.update, this.calculateInterval(nextProps.bpm, nextProps.subdivision));
       } else {
         clearInterval(this.timerID);
       }
-    } else if (nextProps.isPlaying && (nextProps.bpm !== this.props.bpm || nextProps.subdivision !== this.props.subdivision)) {
+    } else if (nextProps.isPlaying && (nextProps.bpm != this.props.bpm || nextProps.subdivision != this.props.subdivision)) {
       clearInterval(this.timerID);
       this.timerID = setInterval(this.update, this.calculateInterval(nextProps.bpm, nextProps.subdivision));
     }
