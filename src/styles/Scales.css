@@ -1,0 +1,21 @@
+select {
+    display: block;
+    font-size: 1.5rem;
+    background: rgba(0,0,0,0.1);
+    color: white;
+    padding: 10px;
+    appearance: none;
+    margin: 0 auto;
+    outline: none;
+    border: 0.5px solid green;
+}
+
+.note{
+    padding: 3px;
+}
+
+.scale-view{
+    margin: 10px;
+    text-align: center;
+    font-size: 1.4rem;
+}

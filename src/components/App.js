@@ -1,6 +1,8 @@
 import React from 'react';
 import Metronome from './Metronome';
 import Tuner from './Tuner';
+import Scales from './Scales';
+
 class App extends React.Component {
 
 	render(){
@@ -12,6 +14,9 @@ class App extends React.Component {
 						</div>
 						<div className="eight wide column" style={{backgroundColor: 'rgba(0,0,0,0.05)',padding: '10px'}}>
 							<Tuner />
+						</div>
+						<div className="eight wide column" style={{backgroundColor: 'rgba(0,0,0,0.05)',padding: '10px'}}>
+							<Scales />
 						</div>
 					</div>
 			</div>
