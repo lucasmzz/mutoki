@@ -25,7 +25,7 @@ class Tuner extends React.Component {
 	};
 
 	componentDidMount() {
-		let audioContext = new AudioContext();
+		let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 		let osc = audioContext.createOscillator();
 		let gainOsc = audioContext.createGain();
 
@@ -100,8 +100,8 @@ class Tuner extends React.Component {
 					  <button value="B" className="ui inverted basic violet button">B</button>
 					</div>
 				</div>
-				<div className="centered row">
-					<button onClick={this.onStop} className="ui button basic red">STOP</button>
+				<div className="ui row">
+					<button onClick={this.onStop} className="ui button basic red" style={{width: '100%'}}>STOP</button>
 				</div>
 			</div>
 		);
