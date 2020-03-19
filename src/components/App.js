@@ -7,7 +7,7 @@ class App extends React.Component {
 
 	render(){
 		return(
-			<div className="two column stackable ui grid" style={{marginTop: '10px'}}>
+			<div className="two column stackable ui grid container" style={{marginTop: '10px'}}>
 				<div className="column tool-container">
 					<Metronome />
 				</div>

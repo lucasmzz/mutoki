@@ -44,17 +44,16 @@ class Metronome extends React.Component {
 	};
 	render(){
 		return (
-			<div>
 				<RPMetronome
 					bpm={this.state.tempo}
 					subdivision={1}
 					soundEnabled={this.state.soundEnabled}
 					soundPattern={this.state.signature}
 					render={(props, state) => (
-				    	<div className="ui grid">
+				    	<div className="ui grid" style={{padding: '10px 20px'}}>
 					    	<div className="two column row">
 					    		<div className="eight wide column">
-						    		<div className="ui placeholder segment" style={{backgroundColor: 'rgba(0,0,0,0.03)'}}>
+						    		<div className="ui container" style={{backgroundColor: 'rgba(0,0,0,0.03)'}}>
 									  <div className="ui two column centered grid">
 										  <button onClick={this.onPlay} className="ui inverted basic green button" style={this.buttonStyle}>
 										    <i style={this.iconStyle} className="play icon"></i>
@@ -66,8 +65,8 @@ class Metronome extends React.Component {
 									</div>
 								</div>
 								<div className="eight wide column">
-									<div className="ui placeholder segment" style={{backgroundColor: 'rgba(0,0,0,0.03)'}}>
-										<p style={{fontSize: '7vw', color: 'white', textAlign: 'center'}}>{this.state.tempo}</p>
+									<div className="ui container" style={{backgroundColor: 'rgba(0,0,0,0.03)'}}>
+										<p style={{fontSize: '5vw', color: 'white', textAlign: 'center'}}>{this.state.tempo}</p>
 									</div>
 								</div>
 						    </div>
@@ -77,7 +76,6 @@ class Metronome extends React.Component {
 				    	</div>
 					)}
 				/>
-			</div>
 		);
 	}
 }

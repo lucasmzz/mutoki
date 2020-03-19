@@ -8,8 +8,8 @@ const styles = {
     width: '100%'
   },
   slider: {
-    margin: '30px 30px',
-    padding: '22px 0px',
+    margin: '10px 20px',
+    padding: '10px 10px',
     selectionColor: 'black',
     rippleColor: 'black'
   },

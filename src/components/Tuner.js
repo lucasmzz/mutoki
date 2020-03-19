@@ -57,7 +57,7 @@ class Tuner extends React.Component {
 
 	onStop = (event) => {
 		event.preventDefault();
-		this.setState({enabled: false},this.stopTuner);
+		if (this.state.enabled) this.setState({enabled: false},this.stopTuner);
 	};
 
 	runTuner = () => {
@@ -93,26 +93,23 @@ class Tuner extends React.Component {
 		return(
 			<div className="ui grid container">
 				<div className="row">
-					<div className="ui six column relaxed grid container buttons">
-					  <button onClick={this.onTuneSelect} value="C" className="ui inverted basic violet button">C</button>
-					  <button onClick={this.onTuneSelect} value="C#" className="ui inverted basic violet button">C#</button>
-					  <button onClick={this.onTuneSelect} value="D" className="ui inverted basic violet button">D</button>
-					  <button onClick={this.onTuneSelect} value="D#" className="ui inverted basic violet button">D#</button>
-					  <button onClick={this.onTuneSelect} value="E" className="ui inverted basic violet button">E</button>
-					  <button onClick={this.onTuneSelect} value="F" className="ui inverted basic violet button">F</button>
-					  <button onClick={this.onTuneSelect} value="F#" className="ui inverted basic violet button">F#</button>
-					  <button onClick={this.onTuneSelect} value="G" className="ui inverted basic violet button">G</button>
-					  <button onClick={this.onTuneSelect} value="G#" className="ui inverted basic violet button">G#</button>
-					  <button onClick={this.onTuneSelect} value="A" className="ui inverted basic violet button">A</button>
-					  <button onClick={this.onTuneSelect} value="A#" className="ui inverted basic violet button">A#</button>
-					  <button onClick={this.onTuneSelect} value="B" className="ui inverted basic violet button">B</button>
+					<div className="ui six column buttons" onClick={this.onTuneSelect}>
+					  <button value="C" className="ui inverted basic violet button">C</button>
+					  <button value="C#" className="ui inverted basic violet button">C#</button>
+					  <button value="D" className="ui inverted basic violet button">D</button>
+					  <button value="D#" className="ui inverted basic violet button">D#</button>
+					  <button value="E" className="ui inverted basic violet button">E</button>
+					  <button value="F" className="ui inverted basic violet button">F</button>
+					  <button value="F#" className="ui inverted basic violet button">F#</button>
+					  <button value="G" className="ui inverted basic violet button">G</button>
+					  <button value="G#" className="ui inverted basic violet button">G#</button>
+					  <button value="A" className="ui inverted basic violet button">A</button>
+					  <button value="A#" className="ui inverted basic violet button">A#</button>
+					  <button value="B" className="ui inverted basic violet button">B</button>
 					</div>
 				</div>
-				<div className="row">
-					<div className="ui grid container buttons">
-						<button onClick={this.onStart} className="ui button basic green">START</button>
-						<button onClick={this.onStop} className="ui button basic red">STOP</button>
-					</div>
+				<div className="centered row">
+					<button onClick={this.onStop} className="ui button basic red">STOP</button>
 				</div>
 			</div>
 		);
