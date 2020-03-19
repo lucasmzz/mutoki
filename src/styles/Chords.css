@@ -17,9 +17,7 @@
     padding: 3px;
 }
 
-.scale-view{
-    overflow: hidden;
-    clear: both;
+.chord-view{
     margin: 10px;
     text-align: center;
     font-size: 1.4rem;

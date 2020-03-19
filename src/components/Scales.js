@@ -4,18 +4,24 @@ import '../styles/Scales.css';
 
 class Scales extends React.Component{
     
-    state = { scale: 'C major' };
+    state = { root: 'C', scale: 'major' };
 
-    renderSelector = () => { 
+    renderRootSelector = () => {
+        const options = Scale.notes('C chromatic').map(note => <option value={note} key={note}>{note}</option>);
+        return <select value={this.state.root} onChange={this.onRootChange}>{options}</select>
+    }
+    renderScaleSelector = () => { 
         const options = Scale.names().map(scale => <option value={scale} key={scale}>{scale}</option>);
-        return <select onChange={this.onScaleChange}>{options}</select>
+        return <select value={this.state.scale} onChange={this.onScaleChange}>{options}</select>
     };
 
-    onScaleChange = (e) => this.setState({ scale: `C ${e.target.value}`});
-
+    onScaleChange = (e) => this.setState({ scale: e.target.value});
+    
+    onRootChange = (e) => this.setState({ root: e.target.value});
+    
     renderScale = () => {
-        return Scale.notes(this.state.scale).map(note => {
-            return <span class="note">{note}</span>
+        return Scale.notes(`${this.state.root} ${this.state.scale}`).map(note => {
+            return <span key={note} className="note">{note}</span>
         });
 
     }
@@ -23,8 +29,11 @@ class Scales extends React.Component{
         return(
             <div>
                 <h1>Scale Explorer</h1>
-                {this.renderSelector()}
-                <div class="scale-view">
+                <div className="selector-wrapper clearfix">
+                    {this.renderRootSelector()}
+                    {this.renderScaleSelector()}
+                </div>
+                <div className="scale-view">
                     {this.renderScale()}
 
                 </div>

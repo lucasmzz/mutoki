@@ -2,6 +2,7 @@ import React from 'react';
 import Metronome from './Metronome';
 import Tuner from './Tuner';
 import Scales from './Scales';
+import Chords from './Chords';
 import '../styles/App.css';
 class App extends React.Component {
 
@@ -16,6 +17,9 @@ class App extends React.Component {
 				</div>
 				<div className="column tool-container">
 					<Scales />
+				</div>
+				<div className="column tool-container">
+					<Chords />
 				</div>
 			</div>
 		);
