@@ -25,8 +25,6 @@ class Tuner extends React.Component {
 	};
 
 	componentDidMount() {
-		console.log('component mounted. creating audio context...');
-
 		let audioContext = new AudioContext();
 		let osc = audioContext.createOscillator();
 		let gainOsc = audioContext.createGain();
@@ -41,22 +39,17 @@ class Tuner extends React.Component {
 	};
 
 	componentDidUpdate(){
-		console.log('updating component');
 		this.state.osc.connect(this.state.gainOsc);
 		this.state.gainOsc.connect(this.state.audioContext.destination);
 	};
 
-	reportState = () => {
-		console.log(this.state);
-	};
-
-	onStart = (event) => {
-		event.preventDefault();
+	onStart = (e) => {
+		e.preventDefault();
 		this.setState({enabled: true},this.runTuner);
 	};
 
-	onStop = (event) => {
-		event.preventDefault();
+	onStop = (e) => {
+		e.preventDefault();
 		if (this.state.enabled) this.setState({enabled: false},this.stopTuner);
 	};
 
@@ -68,24 +61,23 @@ class Tuner extends React.Component {
 	};
 
 	stopTuner = () => {
-		console.log('stopping... ');
 		this.setState({enabled: false});
 		this.state.osc.stop(this.state.audioContext.currentTime + 0.01);
 	};
 
-	onTuneSelect = (event) => {
-		event.preventDefault();
+	onTuneSelect = (e) => {
+		e.preventDefault();
 		if (this.state.enabled){
 			this.stopTuner();
 			let osc = this.state.audioContext.createOscillator();
 			osc.type = "sine";
-			osc.frequency.value = this.noteFrequency[event.target.value];
-			this.setState({osc},this.reportState);
+			osc.frequency.value = this.noteFrequency[e.target.value];
+			this.setState({osc});
 			this.runTuner();
 		};
 		let osc = this.state.audioContext.createOscillator();
 		osc.type = "sine";
-		osc.frequency.value = this.noteFrequency[event.target.value];
+		osc.frequency.value = this.noteFrequency[e.target.value];
 		this.setState({osc},this.runTuner);
 	};
 
