@@ -4,17 +4,14 @@ import '../styles/Scales.css';
 
 class Scales extends React.Component{
     
-    state = {
-		scale: 'C major'
-	};
+    state = { scale: 'C major' };
+
     renderSelector = () => { 
         const options = Scale.names().map(scale => <option value={scale} key={scale}>{scale}</option>);
         return <select onChange={this.onScaleChange}>{options}</select>
     };
 
-    onScaleChange = (e) => {
-        this.setState({ scale: `C ${e.target.value}`});
-    };
+    onScaleChange = (e) => this.setState({ scale: `C ${e.target.value}`});
 
     renderScale = () => {
         return Scale.notes(this.state.scale).map(note => {
@@ -29,8 +26,8 @@ class Scales extends React.Component{
                 {this.renderSelector()}
                 <div class="scale-view">
                     {this.renderScale()}
-                </div>
 
+                </div>
             </div>
         );
     }
