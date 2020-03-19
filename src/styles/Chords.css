@@ -1,6 +1,7 @@
 .selector-wrapper{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .selector-wrapper select {
@@ -31,4 +32,8 @@
 content: "";
 clear: both;
 display: table;
+}
+
+button {
+    width: 1vw;
 }
