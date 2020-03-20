@@ -29,7 +29,7 @@ class Scales extends React.Component{
     
     renderScale = () => {
         return Scale.notes(`${this.state.root} ${this.state.scale}`).map(note => {
-            return <span key={note} className="note">{note}</span>
+            return <div key={note} className="note">{note}</div>
         });
 
     }
@@ -98,7 +98,7 @@ class Scales extends React.Component{
                     </button>
                 </div>
                 <div className="ui segment">
-                    <p style={{wordBreak: "break-all"}}>{this.renderScale()}</p>
+                    {this.renderScale()}
                 </div>
             </div>
         );
