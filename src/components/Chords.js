@@ -8,12 +8,12 @@ class Chords extends React.Component{
 
     renderRootSelector = () => {
         const options = Scale.notes('C chromatic').map(note => <option value={note} key={note}>{note}</option>);
-        return <select value={this.state.root} onChange={this.onRootChange}>{options}</select>
+        return <select className="ui dropdown" value={this.state.root} onChange={this.onRootChange}>{options}</select>
     }
 
     renderChordSelector = () => { 
        const options = Chord.names().map(chord => <option value={chord} key={chord}>{chord}</option>);
-       const select = <select value={this.state.chord} onChange={this.onChordChange}>{options}</select>
+       const select = <select className="ui dropdown" value={this.state.chord} onChange={this.onChordChange}>{options}</select>
        return select;
     };
 
@@ -65,26 +65,24 @@ class Chords extends React.Component{
             g.gain.exponentialRampToValueAtTime(0.1, ac.currentTime + 1 );
             g.connect(ac.destination);
             o.start(0);
-            setTimeout(function(s) {s.stop(0)}, 1000, o);
+            setTimeout(function(s) {s.stop(0)}, 2000, o);
         }
     }
 
     render(){
         return(
-            <div>
+            <div className="middle">
                 <h1>Chord Explorer</h1>
-                <div className="selector-wrapper clearfix">
+                <div className="ui centered row">
                     {this.renderRootSelector()}
                     {this.renderChordSelector()}
-                    <div>
-                        <button onClick={this.onChordPlay} className="ui inverted basic green button">
-                            <i style={this.iconStyle} className="play icon"></i>
-                        </button>
-                    </div>
+                    <button onClick={this.onChordPlay} className="ui basic inverted green button">
+                        play
+                    </button>
                 </div>
 
-                <div className="chord-view">
-                    {this.renderChord()}
+                <div className="ui segment">
+                <p style={{wordBreak: "break-all"}}>{this.renderChord()}</p>
                 </div>
             </div>
         );

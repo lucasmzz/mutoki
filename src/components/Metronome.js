@@ -35,12 +35,10 @@ class Metronome extends React.Component {
 		}
 	}
 	buttonStyle = {
-		width: '100%',
-		fontSize: '2vw',
-		textAlign: 'center'
+
 	};
 	iconStyle = {
-		margin: '0px 0px'
+		
 	};
 	render(){
 		return (
@@ -50,26 +48,30 @@ class Metronome extends React.Component {
 					soundEnabled={this.state.soundEnabled}
 					soundPattern={this.state.signature}
 					render={(props, state) => (
-				    	<div className="ui grid" style={{padding: '10px 20px'}}>
-					    	<div className="two column row">
-					    		<div className="eight wide column">
-						    		<div className="ui container" style={{backgroundColor: 'rgba(0,0,0,0.03)'}}>
-									  <div className="ui two column centered grid">
-										  <button onClick={this.onPlay} className="ui inverted basic green button" style={this.buttonStyle}>
-										    <i style={this.iconStyle} className="play icon"></i>
-										  </button>
-										  <button onClick={this.onStop} className="ui inverted basic red button" style={this.buttonStyle}>
-										    <i style={this.iconStyle} className="pause icon"></i>
-										  </button>
-									 </div>
+				    	<div className="ui grid">
+					    	
+							<div className="two column row">
+
+					    		<div className="column">
+									<div className="ui row" style={{height: '100%'}}>
+										<div className="ui segment" style={{height: '100%', display: 'flex', flexWrap: 'wrap' , alignItems: 'center', alignContent: 'center'}}>
+											<button onClick={this.onPlay} className="positive ui fluid button">
+												<i className="play icon"></i>
+											</button>
+											<button onClick={this.onStop} className="negative ui fluid button">
+											<i className="pause icon"></i>
+											</button>
+										</div>
 									</div>
 								</div>
-								<div className="eight wide column">
-									<div className="ui container" style={{backgroundColor: 'rgba(0,0,0,0.03)'}}>
-										<p style={{fontSize: '5vw', color: 'white', textAlign: 'center'}}>{this.state.tempo}</p>
+								
+								<div className="column">
+									<div className="ui segment" style={{backgroundColor: 'rgba(0,0,0,0.03)', height: '100%'}}>
+										<p style={{fontSize: '4rem', color: 'white', textAlign: 'center'}}>{this.state.tempo}</p>
 									</div>
 								</div>
 						    </div>
+
 						    <div className="row">
 						   		<Slider onSliderChange={this.onSliderChange} value={this.state.tempo} />
 						    </div>

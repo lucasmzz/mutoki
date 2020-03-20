@@ -7,15 +7,23 @@ class Scales extends React.Component{
     state = { root: 'C', scale: 'major' };
 
     renderRootSelector = () => {
+
         const options = Scale.notes('C chromatic').map(note => <option value={note} key={note}>{note}</option>);
-        return <select value={this.state.root} onChange={this.onRootChange}>{options}</select>
+        return <select className="ui dropdown" value={this.state.root} onChange={this.onRootChange}>{options}</select>
     }
     renderScaleSelector = () => { 
+        const changeHandlerLength = (select) => {
+            let len = select.value.length;
+            select.style.width = `${len * 8}px`;
+        };
         const options = Scale.names().map(scale => <option value={scale} key={scale}>{scale}</option>);
-        return <select value={this.state.scale} onChange={this.onScaleChange}>{options}</select>
+        const selector = <select id="scale-selector" style={{width: '100px'}}className="ui dropdown" value={this.state.scale} onChange={(e) => {changeHandlerLength(e.target); this.onScaleChange(e.target.value)}}>{options}</select>;        
+        return selector;
     };
 
-    onScaleChange = (e) => this.setState({ scale: e.target.value});
+    onScaleChange = (value) => {
+        this.setState({ scale: value});
+    };
     
     onRootChange = (e) => this.setState({ root: e.target.value});
     
@@ -70,13 +78,9 @@ class Scales extends React.Component{
             o.frequency.value = freqs[i];
             o.type = "sine";
             o.connect(g);
-            g.gain.setValueAtTime(0.1, audio.currentTime); // <-- line of interest
+            g.gain.setValueAtTime(0.1, audio.currentTime);
             g.gain.exponentialRampToValueAtTime(0.4, audio.currentTime + 8 );
             g.connect(audio.destination);
-
-            
-            
-            
             o.start(start);
             o.stop(stop);    
         }
@@ -84,20 +88,17 @@ class Scales extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="middle">
                 <h1>Scale Explorer</h1>
-                <div className="selector-wrapper clearfix">
+                <div className="ui centered row">
                     {this.renderRootSelector()}
                     {this.renderScaleSelector()}
-                    <div>
-                        <button onClick={this.onScalePlay} className="ui inverted basic green button">
-                            <i style={this.iconStyle} className="play icon"></i>
-                        </button>
-                    </div>
+                    <button onClick={this.onScalePlay} className="ui basic inverted green button">
+                        play
+                    </button>
                 </div>
-                <div className="scale-view">
-                    {this.renderScale()}
-
+                <div className="ui segment">
+                    <p style={{wordBreak: "break-all"}}>{this.renderScale()}</p>
                 </div>
             </div>
         );

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/Tuner.css';
 class Tuner extends React.Component {
 
 	state = {
@@ -23,7 +23,9 @@ class Tuner extends React.Component {
 		'A#': 466.16,
 		'B': 493.88
 	};
-
+	renderTones() {
+		return Object.keys(this.noteFrequency).map(tone => <button key={tone} value={tone} className="ui inverted basic violet button">{tone}</button>);
+	}
 	componentDidMount() {
 		let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 		let osc = audioContext.createOscillator();
@@ -86,22 +88,11 @@ class Tuner extends React.Component {
 			<div className="ui grid container">
 				<div className="row">
 					<div className="ui six column buttons" onClick={this.onTuneSelect}>
-					  <button value="C" className="ui inverted basic violet button">C</button>
-					  <button value="C#" className="ui inverted basic violet button">C#</button>
-					  <button value="D" className="ui inverted basic violet button">D</button>
-					  <button value="D#" className="ui inverted basic violet button">D#</button>
-					  <button value="E" className="ui inverted basic violet button">E</button>
-					  <button value="F" className="ui inverted basic violet button">F</button>
-					  <button value="F#" className="ui inverted basic violet button">F#</button>
-					  <button value="G" className="ui inverted basic violet button">G</button>
-					  <button value="G#" className="ui inverted basic violet button">G#</button>
-					  <button value="A" className="ui inverted basic violet button">A</button>
-					  <button value="A#" className="ui inverted basic violet button">A#</button>
-					  <button value="B" className="ui inverted basic violet button">B</button>
+						{this.renderTones()}
 					</div>
 				</div>
 				<div className="ui row">
-					<button onClick={this.onStop} className="ui button basic red" style={{width: '100%'}}>STOP</button>
+					<button onClick={this.onStop} className="ui button basic red btn-stop">STOP</button>
 				</div>
 			</div>
 		);

@@ -8,20 +8,20 @@ class App extends React.Component {
 
 	render(){
 		return(
-			<div className="two column stackable ui grid container" style={{marginTop: '10px'}}>
-				<div className="column">
-					<div className="tool-container">
+			<div className="ui stackable two column grid container" style={{marginTop: '10px'}}>
+				<div className="eight wide column">
+					<div className="ui transparent segment">
 						<Metronome />
 					</div>
-					<div className="tool-container">
+					<div className="ui transparent segment">
 						<Tuner />
 					</div>
 				</div>
-				<div className="column">
-					<div className="tool-container">
+				<div className=" eight wide column">
+					<div className="ui transparent segment">
 						<Scales />
 					</div>
-					<div className="tool-container">
+					<div className="ui transparent segment">
 						<Chords />
 					</div>
 				</div>

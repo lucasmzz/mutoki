@@ -1,39 +1,21 @@
-.selector-wrapper{
+/* .chord-selector-wrapper{
     display: flex;
     justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
-.selector-wrapper select {
-    font-size: 1.5rem;
+.chord-selector-wrapper select {
+    font-size: 2vw;
     background: rgba(0,0,0,0.1);
     color: white;
     padding: 10px;
     appearance: none;
     outline: none;
     border: 0.5px solid transparent;
-}
+} */
 
 .note{
-    padding: 3px;
-}
-
-.chord-view{
-    margin: 10px;
-    text-align: center;
-    font-size: 1.4rem;
-}
-
-.clearfix {
-    overflow: auto;
-  }
-
-.clearfix::after {
-content: "";
-clear: both;
-display: table;
-}
-
-button {
-    width: 1vw;
+    padding: 7px;
+    font-size: 1.7rem;
 }

@@ -1,21 +1,7 @@
-.selector-wrapper{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.selector-wrapper select {
-    font-size: 1.5rem;
-    background: rgba(0,0,0,0.1);
-    color: white;
-    padding: 10px;
-    appearance: none;
-    outline: none;
-    border: 0.5px solid transparent;
-}
-
 .note{
     padding: 3px;
+    font-size: 1vw;
+    color: white;
 }
 
 .scale-view{
@@ -34,4 +20,8 @@
 content: "";
 clear: both;
 display: table;
+}
+
+.middle{
+    text-align: center;
 }
