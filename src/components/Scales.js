@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale } from 'tonal';
+import { Scale, Note, scale, transpose } from 'tonal';
 import '../styles/Scales.css';
 
 class Scales extends React.Component{
@@ -36,31 +36,11 @@ class Scales extends React.Component{
 
     onScalePlay = async () => {
         
-        const noteFrequency = {
-            'C': 261.63,
-            'B#': 261.63,
-            'C#': 277.18,
-            'Db': 277.18,
-            'D': 293.66,
-            'D#': 311.13,
-            'Eb': 311.13,
-            'E': 329.63,
-            'Fb': 329.63,
-            'E#': 349.23,
-            'F': 349.23,
-            'F#': 369.99,
-            'Gb': 369.99,
-            'G': 392.00,
-            'G#': 415.30,
-            'Ab': 415.30,
-            'A': 440.00,
-            'A#': 466.16,
-            'Bb': 466.16,
-            'B': 493.88,
-            'Cb': 493.88,
-        };
-        let freqs = Scale.notes(`${this.state.root} ${this.state.scale}`).map(note => noteFrequency[note]);
+        let freqs = scale(this.state.scale)
+                    .map(transpose(`${this.state.root}3`))
+                    .map(note => Note.freq(note));
         freqs.push(freqs[0]*2);
+        
         let audio = new (window.AudioContext || window.webkitAudioContext)();
 
         let o = null,

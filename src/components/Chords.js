@@ -54,6 +54,7 @@ class Chords extends React.Component{
             'B': 493.88,
             'Cb': 493.88,
         };
+        
         let freqs = Chord.notes(`${this.state.root}${this.state.chord}`).map(note => noteFrequency[note]);
         for(let i=0;i<freqs.length;i++) {
             let o = ac.createOscillator();

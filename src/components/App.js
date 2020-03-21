@@ -3,6 +3,7 @@ import Metronome from './Metronome';
 import Tuner from './Tuner';
 import Scales from './Scales';
 import Chords from './Chords';
+import PianoRoll from './PianoRoll';
 import '../styles/App.css';
 class App extends React.Component {
 
@@ -15,6 +16,9 @@ class App extends React.Component {
 					</div>
 					<div className="ui transparent segment">
 						<Tuner />
+					</div>
+					<div className="ui transparent segment">
+						<PianoRoll />
 					</div>
 				</div>
 				<div className=" eight wide column">
